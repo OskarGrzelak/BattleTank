@@ -14,6 +14,7 @@ void ATankPlayerController::BeginPlay()
 	{
 		UE_LOG(LogTemp, Warning, TEXT("player controlls: %s"), *(GetControlledTank()->GetName()));
 	}
+	UE_LOG(LogTemp, Warning, TEXT("Camera position: %s"), *(PlayerCameraManager->GetCameraLocation().ToString()));
 }
 
 void ATankPlayerController::Tick(float DeltaTime)
@@ -33,8 +34,7 @@ void ATankPlayerController::AimTowardsCrosshair()
 	FVector HitLocation; // Out parameter
 	if (GetSightRayHitLocation(HitLocation)) // Has "side-effect", is goint to line trace
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Look location: %s"), *HitLocation.ToString());
-		// TODO tell controlled tank to aim at this point
+		GetControlledTank()->AimAt(HitLocation);
 	}
 }
 

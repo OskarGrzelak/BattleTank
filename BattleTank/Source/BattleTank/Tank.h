@@ -22,7 +22,7 @@ public:
 	void AimAt(FVector HitLocation);
 	// Called every frame
 	UFUNCTION(BlueprintCallable, Category = Setup)
-		void SetBarrelReference(UTankBarrel * BarrelToSet, UTankTurret * TurretToSet);
+		void SetBarrelReference(UTankBarrel * BarrelToSet);
 	UFUNCTION(BlueprintCallable, Category = Setup)
 		void SetTurretReference(UTankTurret * TurretToSet);
 	// Called to bind functionality to input
@@ -35,7 +35,7 @@ protected:
 
 public:	
 	UPROPERTY(EditAnywhere, Category = Firing)
-	float LaunchSpeed = 100000.f;
+	float LaunchSpeed = 8000.f;
 
 	
 	
